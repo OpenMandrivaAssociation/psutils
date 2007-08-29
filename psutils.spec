@@ -1,13 +1,14 @@
 Summary:	PostScript utilities
 Name:		psutils
 Version:	p17
-Release:	%mkrel 10
+Release:	%mkrel 11
 
-Source0:	ftp://ftp.dante.de/pub/tex-archive/support/%{name}-%{version}.tar.bz2
+URL:		http://www.tardis.ed.ac.uk/~ajcd/psutils/index.html
+Source0:	ftp://ftp.knackered.org/pub/psutils/%{name}-%{version}.tar.bz2
 Patch0:		psutils-make.patch
 Patch1:		psutils-maketext.patch
 
-License:	Freeware
+License:	BSD-like
 Group:		Publishing
 BuildRoot:	%_tmppath/%name-%version-%release-root
 Requires:	perl
