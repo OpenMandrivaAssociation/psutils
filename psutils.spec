@@ -10,6 +10,7 @@ Patch1:		psutils-maketext.patch
 
 License:	BSD-like
 Group:		Publishing
+BuildRoot:	%_tmppath/%name-%version-%release-root
 Requires:	perl
 
 %description
