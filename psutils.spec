@@ -1,7 +1,7 @@
 Summary:	PostScript utilities
 Name:		psutils
 Version:	p17
-Release:	%mkrel 11
+Release:	%mkrel 12
 
 URL:		http://www.tardis.ed.ac.uk/~ajcd/psutils/index.html
 Source0:	ftp://ftp.knackered.org/pub/psutils/%{name}-%{version}.tar.bz2
