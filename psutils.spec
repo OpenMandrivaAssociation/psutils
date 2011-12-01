@@ -26,18 +26,18 @@ into signatures for booklet printing, and page merging for n-up printing.
 
 %build
 make -f Makefile.unix RPM_OPT_FLAGS="$RPM_OPT_FLAGS" \
-	BUILDROOT="$RPM_BUILD_ROOT" PERL=%{_bindir}/perl
+	BUILDROOT="%{buildroot}" PERL=%{_bindir}/perl
 
 %install
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/usr/{bin,man,share/psutils}
-make -f Makefile.unix install BUILDROOT="$RPM_BUILD_ROOT"
-strip $RPM_BUILD_ROOT/%_bindir/{epsffit,psbook,psnup,psresize,pstops,psselect}
+rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/{bin,man,share/psutils}
+make -f Makefile.unix install BUILDROOT="%{buildroot}"
+strip %{buildroot}/%_bindir/{epsffit,psbook,psnup,psresize,pstops,psselect}
 #move the man page
-mv $RPM_BUILD_ROOT/usr/man $RPM_BUILD_ROOT/%_datadir
+mv %{buildroot}/usr/man %{buildroot}/%_datadir
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,0755)
