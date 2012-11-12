@@ -1,0 +1,48 @@
+--- psutils/Makefile.unix.orig	Tue Mar 11 23:52:59 1997
++++ psutils/Makefile.unix	Fri Aug 13 18:45:55 1999
+@@ -25,10 +25,11 @@
+ 
+ OS = UNIX
+ 
+-BINDIR = /usr/local/bin
++BUILDROOT = $(RPM_BUILD_ROOT)
++BINDIR = $(BUILDROOT)/usr/bin
+ SCRIPTDIR = $(BINDIR)
+-INCLUDEDIR = /usr/local/share/psutils
+-PERL = /usr/local/bin/perl
++INCLUDEDIR = /usr/share/psutils
++PERL = perl
+ 
+ BINMODE = 0755
+ MANMODE = 0644
+@@ -36,10 +37,10 @@
+ INSTALL = install -c -m $(BINMODE)
+ INSTALLMAN = install -c -m $(MANMODE)
+ MANEXT = 1
+-MANDIR = /usr/local/share/man/man$(MANEXT)
++MANDIR = $(BUILDROOT)/usr/man/man$(MANEXT)
+ 
+ CC = gcc
+-CFLAGS = -DPAPER=\"$(PAPER)\" -DUNIX -O -Wall
++CFLAGS = -DPAPER=\"$(PAPER)\" -DUNIX -Wall $(RPM_OPT_FLAGS)
+ 
+ BIN = psbook psselect pstops epsffit psnup \
+ 	psresize
+@@ -233,10 +234,10 @@
+ 	done
+ 
+ install.include: $(INCLUDES)
+-	-mkdir $(INCLUDEDIR)
++	-mkdir $(BUILDROOT)/$(INCLUDEDIR)
+ 	@for i in $(INCLUDES); do \
+ 		echo Installing $$i; \
+-		$(INSTALLMAN) $$i $(INCLUDEDIR); \
++		$(INSTALLMAN) $$i $(BUILDROOT)/$(INCLUDEDIR); \
+ 	done
+ 
+ install.man: $(MANPAGES)
+@@ -245,4 +246,3 @@
+ 		echo Installing manual page for $$i; \
+ 		$(INSTALLMAN) $$i $(MANDIR)/$$i; \
+ 	done
+-
