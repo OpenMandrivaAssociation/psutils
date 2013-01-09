@@ -1,7 +1,7 @@
 Summary:	PostScript utilities
 Name:		psutils
 Version:	p17
-Release:	%mkrel 20
+Release:	21
 
 URL:		http://www.tardis.ed.ac.uk/~ajcd/psutils/index.html
 Source0:	ftp://ftp.knackered.org/pub/psutils/%{name}-%{version}.tar.bz2
@@ -10,7 +10,6 @@ Patch1:		psutils-maketext.patch
 
 License:	BSD-like
 Group:		Publishing
-BuildRoot:	%_tmppath/%name-%version-%release-root
 Requires:	perl
 
 %description
@@ -26,18 +25,14 @@ into signatures for booklet printing, and page merging for n-up printing.
 
 %build
 make -f Makefile.unix RPM_OPT_FLAGS="$RPM_OPT_FLAGS" \
-	BUILDROOT="$RPM_BUILD_ROOT" PERL=%{_bindir}/perl
+	BUILDROOT="%{buildroot}" PERL=%{_bindir}/perl
 
 %install
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/usr/{bin,man,share/psutils}
+mkdir -p %{buildroot}/usr/{bin,man,share/psutils}
 make -f Makefile.unix install BUILDROOT="$RPM_BUILD_ROOT"
-strip $RPM_BUILD_ROOT/%_bindir/{epsffit,psbook,psnup,psresize,pstops,psselect}
+strip %{buildroot}/%{_bindir}/{epsffit,psbook,psnup,psresize,pstops,psselect}
 #move the man page
-mv $RPM_BUILD_ROOT/usr/man $RPM_BUILD_ROOT/%_datadir
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+mv %{buildroot}/usr/man %{buildroot}/%{_datadir}
 
 %files
 %defattr(-,root,root,0755)
