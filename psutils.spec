@@ -1,3 +1,4 @@
+%define	debug_package	%nil
 Summary:	PostScript utilities
 Name:		psutils
 Version:	p17
