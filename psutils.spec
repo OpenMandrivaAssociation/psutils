@@ -3,7 +3,7 @@
 Summary:	PostScript utilities
 Name:		psutils
 Version:	p17
-Release:	21
+Release:	22
 License:	BSD-like
 Group:		Publishing
 Url:		http://www.tardis.ed.ac.uk/~ajcd/psutils/index.html
