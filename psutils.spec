@@ -22,7 +22,7 @@ into signatures for booklet printing, and page merging for n-up printing.
 %apply_patches
 
 %build
-make -f Makefile.unix RPM_OPT_FLAGS="$RPM_OPT_FLAGS" \
+make -f Makefile.unix RPM_OPT_FLAGS="%{optflags}" CC=%{__cc} \
 	BUILDROOT="%{buildroot}" PERL=%{_bindir}/perl
 
 %install
@@ -38,4 +38,3 @@ mv %{buildroot}/usr/man %{buildroot}/%{_datadir}
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*
 %{_mandir}/man1/*
-
