@@ -10,6 +10,7 @@ Url:		http://www.tardis.ed.ac.uk/~ajcd/psutils/index.html
 Source0:	ftp://ftp.knackered.org/pub/psutils/%{name}-%{version}.tar.bz2
 Patch0:		psutils-make.patch
 Patch1:		psutils-maketext.patch
+Patch2:		fix-ldflags.patch
 Requires:	perl
 
 %description
@@ -22,7 +23,7 @@ into signatures for booklet printing, and page merging for n-up printing.
 %apply_patches
 
 %build
-make -f Makefile.unix RPM_OPT_FLAGS="%{optflags}" CC=%{__cc} \
+make -f Makefile.unix RPM_OPT_FLAGS="%{optflags}" LDFLAGS="%{ldflags}" CC=%{__cc} \
 	BUILDROOT="%{buildroot}" PERL=%{_bindir}/perl
 
 %install
