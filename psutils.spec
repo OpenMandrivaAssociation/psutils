@@ -20,7 +20,7 @@ into signatures for booklet printing, and page merging for n-up printing.
 
 %prep
 %setup -qn psutils
-%apply_patches
+%autopatch -p1
 
 %build
 make -f Makefile.unix RPM_OPT_FLAGS="%{optflags}" LDFLAGS="%{ldflags}" CC=%{__cc} \
