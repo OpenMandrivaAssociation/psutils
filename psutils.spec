@@ -6,7 +6,7 @@ Version:	p17
 Release:	31
 License:	BSD-like
 Group:		Publishing
-Url:		http://www.tardis.ed.ac.uk/~ajcd/psutils/index.html
+Url:		https://www.tardis.ed.ac.uk/~ajcd/psutils/index.html
 Source0:	ftp://ftp.knackered.org/pub/psutils/%{name}-%{version}.tar.bz2
 Patch0:		psutils-make.patch
 Patch1:		psutils-maketext.patch
