@@ -13,6 +13,7 @@ Patch1:		psutils-maketext.patch
 Patch2:		fix-ldflags.patch
 Requires:	perl
 
+BuildRequires:	make
 %description
 psutils contains some utilities for manipulating PostScript documents.
 Page selections and rearrangement are supported, including arrengement
